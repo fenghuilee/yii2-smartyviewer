@@ -19,7 +19,7 @@
         "smarty/smarty": "*"
     },
     "autoload": {
-        "psr-4": { "yii\\smarty\\": "" }
+        "psr-4": { "yii\\smartyviewer\\": "" }
     },
     "extra": {
         "branch-alias": {
