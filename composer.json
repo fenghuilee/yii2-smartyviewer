@@ -1,6 +1,5 @@
 {
     "name": "fenghuilee/yii2-smartyviewer",
-    "version": "1.0.0-dev",
     "description": "The Smarty Viewer integration for the Yii framework 2+",
     "keywords": ["yii2", "smarty", "renderer"],
     "type": "yii2-extension",
