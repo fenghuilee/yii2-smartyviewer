@@ -5,7 +5,8 @@ This extension provides a `ViewRender` that would allow you to use Smarty view t
 
 To use this extension, simply add the following code in your application configuration:
 
-```php
+```
+config/main.php
 return [
     //....
     'components' => [
@@ -19,6 +20,14 @@ return [
         ],
     ],
 ];
+
+XxxxController.php
+    public function init()
+    {
+        Yii::$app->smarty->init();
+        parent::init();
+        //other code
+    }
 ```
 
 Installation
