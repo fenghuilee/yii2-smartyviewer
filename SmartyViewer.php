@@ -13,6 +13,14 @@ use Smarty;
 class SmartyViewer extends Smarty
 {
 	/**
+	 * @var string the yii2 theme path.
+	 */
+	public $themePath = '@app/themes/';
+	/**
+	 * @var string the yii2 theme name.
+	 */
+	public $themeName = 'default';
+	/**
 	 * @var string the directory or path alias pointing to where Smarty cache will be stored.
 	 */
 	public $cachePath = '@runtime/Smarty/cache';
@@ -21,18 +29,6 @@ class SmartyViewer extends Smarty
 	 */
 	public $compilePath = '@runtime/Smarty/compile';
 	/**
-	 * @var array Add additional directories to Smarty's search path for plugins.
-	 */
-	public $pluginDirs = [];
-	/**
-	 * @var array Add additional directories to Smarty's search path for config.
-	 */
-	public $configDirs = [];
-	/**
-	 * @var array Add additional directories to Smarty's search path for template.
-	 */
-	public $templateDirs = '@runtime/Smarty/template';
-	/**
 	 * @var array additional Smarty options
 	 * @see http://www.smarty.net/docs/en/api.variables.tpl
 	 */
@@ -40,13 +36,12 @@ class SmartyViewer extends Smarty
 	/**
 	 * Instantiates and configures the Smarty object.
 	 */
-	function __construct() {
-		parent::__construct();
-		
-		$this->setTemplateDir(Yii::getAlias($this->templateDirs))
+	function init() {
+		$this->setTemplateDir(Yii::getAlias($this->themePath.$this->themeName.'/templates'))
+			 ->setPluginsDir(Yii::getAlias($this->themePath.$this->themeName.'/plugins'))
+			 ->setConfigDir(Yii::getAlias($this->themePath.$this->themeName.'/configs'))
 			 ->setCompileDir(Yii::getAlias($this->compilePath))
 			 ->setCacheDir(Yii::getAlias($this->cachePath));
-		
 		foreach ($this->options as $key => $value) {
 			$this->$key = $value;
 		}
