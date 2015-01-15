@@ -3,15 +3,16 @@ Smarty Extension for Yii 2
 
 This extension provides a `ViewRender` that would allow you to use Smarty view template engine.
 
-To use this extension, simply add the following code in your application configuration:
+To use this extension, simply add the following code in your application configuration and web controller:
 
-```
-config/main.php
+```php
+xxx/config/main.php
 return [
     //....
     'components' => [
         'smarty' => [
             'class' => 'yii\smartyviewer\SmartyViewer',
+            //'themeName' => 'basic',
             //'cachePath' => '@runtime/Smarty/cache',
             //'options' => [
             //    'left_delimiter' => '<{',
