@@ -42,7 +42,7 @@ class SmartyViewer extends Smarty
 	 */
 	function init() {
 		$this->setTemplateDir(Yii::getAlias($this->themePath.$this->themeName.'/templates'))
-			 ->setPluginsDir(Yii::getAlias($this->commonPluginsPath))
+			 ->addPluginsDir(Yii::getAlias($this->commonPluginsPath))
 			 ->addPluginsDir(Yii::getAlias($this->themePath.$this->themeName.'/plugins'))
 			 ->setConfigDir(Yii::getAlias($this->themePath.$this->themeName.'/configs'))
 			 ->setCompileDir(Yii::getAlias($this->compilePath))
