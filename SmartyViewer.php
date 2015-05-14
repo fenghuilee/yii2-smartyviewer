@@ -21,6 +21,10 @@ class SmartyViewer extends Smarty
 	 */
 	public $themeName = 'default';
 	/**
+	 * @var string the directory or path alias pointing to where Smarty common plugins.
+	 */
+	public $commonPluginsPath = '@app/common/smartyplugins';
+	/**
 	 * @var string the directory or path alias pointing to where Smarty cache will be stored.
 	 */
 	public $cachePath = '@runtime/Smarty/cache';
@@ -38,7 +42,7 @@ class SmartyViewer extends Smarty
 	 */
 	function init() {
 		$this->setTemplateDir(Yii::getAlias($this->themePath.$this->themeName.'/templates'))
-			 ->setPluginsDir(Yii::getAlias('@app/common/smartyplugins'))
+			 ->setPluginsDir(Yii::getAlias($this->commonPluginsPath))
 			 ->addPluginsDir(Yii::getAlias($this->themePath.$this->themeName.'/plugins'))
 			 ->setConfigDir(Yii::getAlias($this->themePath.$this->themeName.'/configs'))
 			 ->setCompileDir(Yii::getAlias($this->compilePath))
